@@ -10,7 +10,6 @@ export default class Input extends React.Component {
   }
   
   render() {
-    require("./Input.less");
 
     return (
       <div className="form-group">
