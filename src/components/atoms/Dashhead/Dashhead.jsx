@@ -12,9 +12,11 @@ export default class Heading extends React.Component {
 
     return (
       <div className="dashhead">
-        <div className="dashhead-titles">
-          {subTitle}
-          <h2 className="dashhead-title">{this.props.title}</h2>
+        <div className="dashhead-inner">
+          <div className="dashhead-titles">
+            {subTitle}
+            <h2 className="dashhead-title">{this.props.title}</h2>
+          </div>
         </div>
       </div>
     );

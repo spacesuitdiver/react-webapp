@@ -7,8 +7,9 @@ export default class EmailInput extends React.Component {
   
   render() {
     return (
-      <div>
-          <input type="email" name="email" placeholder="john@johndoe.com" value={this.props.email} />
+      <div className="form-group">
+        <label>Email</label>
+        <input className="form-control" type="email" name="email" placeholder="john@johndoe.com" value={this.props.email} />
       </div>
     );
   }

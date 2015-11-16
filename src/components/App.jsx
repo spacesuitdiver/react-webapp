@@ -12,10 +12,7 @@ export default class App extends React.Component {
 
     return (
       <div id="app">
-        <SiteNav/>
-        <div className="container-fluid">
-          {this.props.children}
-        </div>
+        {this.props.children}
       </div>
     );
   }

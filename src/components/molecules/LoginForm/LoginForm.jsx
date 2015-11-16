@@ -10,17 +10,17 @@ export default class LoginForm extends React.Component {
   render() {
     const { dispatch } = this.props;
 
-    require('./LoginForm.less');
-
     return (
-      <div id="loginForm">
-        <form>
-          <div className="form-group">
-            <EmailInput />
-          </div>
+      <div className="loginForm">
+        <div className="loginForm-inner">
+          <form>
+            <div className="form-group">
+              <EmailInput />
+            </div>
 
-          <input type="password" name="password" placeholder="Your Password" />
-        </form>
+            <input type="password" name="password" placeholder="Your Password" />
+          </form>
+        </div>
       </div>
     );
   }
