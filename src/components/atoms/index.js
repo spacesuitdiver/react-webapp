@@ -1,2 +1,2 @@
-export { default as EmailInput } from './EmailInput/EmailInput';
+export { default as Input } from './Input/Input';
 export { default as Dashhead } from './Dashhead/Dashhead';

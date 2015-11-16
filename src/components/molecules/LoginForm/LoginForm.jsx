@@ -1,6 +1,6 @@
 import React, { PropTypes }   from 'react';
 
-import { EmailInput } from 'components/atoms';
+import { Input } from 'components/atoms';
 
 export default class LoginForm extends React.Component {
   static propTypes = {
@@ -15,10 +15,10 @@ export default class LoginForm extends React.Component {
         <div className="loginForm-inner">
           <form>
             <div className="form-group">
-              <EmailInput />
+              <Input label="Email" name="email" type="email" placeholder="smokeypickle@aol.com"/>
             </div>
 
-            <input type="password" name="password" placeholder="Your Password" />
+            <Input label="Password" name="password" type="password" placeholder="Your password"/>
           </form>
         </div>
       </div>
