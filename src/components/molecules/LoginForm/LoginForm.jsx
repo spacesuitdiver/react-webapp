@@ -33,8 +33,6 @@ export default class LoginForm extends React.Component {
   }
   
   render() {
-    const { dispatch } = this.props;
-
     return (
       <div className="loginForm">
         <div className="loginForm-inner">
