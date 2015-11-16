@@ -14,10 +14,7 @@ export default class LoginForm extends React.Component {
       <div className="loginForm">
         <div className="loginForm-inner">
           <form>
-            <div className="form-group">
-              <Input label="Email" name="email" type="email" placeholder="smokeypickle@aol.com"/>
-            </div>
-
+            <Input label="Email" name="email" type="email" placeholder="smokeypickle@aol.com"/>
             <Input label="Password" name="password" type="password" placeholder="Your password"/>
           </form>
         </div>
