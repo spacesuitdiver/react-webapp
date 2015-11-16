@@ -3,7 +3,7 @@ import React, { PropTypes }   from 'react';
 export default class Heading extends React.Component {
   static propTypes = {
     title: PropTypes.string.isRequired,
-    subTitle: PropTypes.string.isOptional
+    subTitle: PropTypes.string
   }
   
   render() {
