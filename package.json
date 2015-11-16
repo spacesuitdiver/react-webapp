@@ -13,7 +13,6 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.7.0",
-    "basscss": "^7.0.4",
     "express": "^4.13.3",
     "history": "^1.9.1",
     "immutable": "^3.7.5",
@@ -38,7 +37,6 @@
     "extract-text-webpack-plugin": "^0.9.1",
     "less": "^2.5.3",
     "less-loader": "^2.2.1",
-    "raw-loader": "^0.5.1",
     "react-transform-hmr": "^1.0.1",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.1",
