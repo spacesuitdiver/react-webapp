@@ -6,8 +6,8 @@ import { Input, Row } from 'formsy-react-components';
 import * as authActions        from 'actions/AuthActions';
 
 @connect(
-    state => ({auth: state.auth}),
-    authActions)
+  state => ({auth: state.auth}),
+  authActions)
 export default class LoginForm extends React.Component {
   static propTypes = {
     login: PropTypes.func.isRequired
