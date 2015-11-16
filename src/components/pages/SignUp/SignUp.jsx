@@ -1,7 +1,9 @@
 import React, { PropTypes }   from 'react';
 import { LoginForm } from 'components/molecules';
 import { Heading } from 'components/atoms';
+import { connect }            from 'react-redux';
 
+@connect(state => ({}))
 export default class SignUp extends React.Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired
@@ -10,14 +12,14 @@ export default class SignUp extends React.Component {
   render() {
     const { dispatch } = this.props;
 
-    const styles = require('./SignUp.less');
-
-    console.log(styles);
+    require('./SignUp.less');
 
     return (
-      <div className={styles.signup}>
-        <Heading title="Sign Up" />
-        <LoginForm/>
+      <div className="signUp">
+        <div className="signUp-inner">
+          <Heading title="Sign Up" />
+          <LoginForm/>
+        </div>
       </div>
     );
   }
