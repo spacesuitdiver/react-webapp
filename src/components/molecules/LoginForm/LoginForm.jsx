@@ -6,11 +6,11 @@ import { Input, Row } from 'formsy-react-components';
 import * as authActions        from 'actions/AuthActions';
 
 @connect(
-    state => ({user: state.auth.user}),
+    state => ({auth: state.auth}),
     authActions)
 export default class LoginForm extends React.Component {
   static propTypes = {
-    dispatch: PropTypes.func.isRequired
+    login: PropTypes.func.isRequired
   }
 
   constructor(props) {
@@ -21,8 +21,7 @@ export default class LoginForm extends React.Component {
   }
 
   handleSubmit(model) {
-    console.log(model);
-   this.login(model);
+    this.props.login(model);
   }
 
   handleValid() {
