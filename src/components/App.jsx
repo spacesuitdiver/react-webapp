@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import SiteNav from 'components/molecules/SiteNav';
+import { SiteNav } from 'components/molecules';
 
 export default class App extends React.Component {
 
@@ -13,7 +13,9 @@ export default class App extends React.Component {
     return (
       <div id="app">
         <SiteNav/>
-        {this.props.children}
+        <div className="container-fluid">
+          {this.props.children}
+        </div>
       </div>
     );
   }

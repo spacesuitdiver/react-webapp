@@ -58,7 +58,7 @@ app.use( (req, res) => {
           </script>
 
         </head>
-        <body>
+        <body class="with-top-navbar">
           <div id="react-view">${componentHTML}</div>
           <script type="application/javascript" src="/bundle.js"></script>
         </body>

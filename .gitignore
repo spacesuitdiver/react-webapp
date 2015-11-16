@@ -1,3 +1,4 @@
 node_modules
 dist
 webpack-assets.json
+npm-debug.log
