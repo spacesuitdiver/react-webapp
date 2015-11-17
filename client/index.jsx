@@ -16,8 +16,9 @@ const initialState = immutifyState(window.__INITIAL_STATE__);
 
 const history = createBrowserHistory();
 
-const reducer = combineReducers(reducers);
-const store   = applyMiddleware(...middleware)(createStore)(reducer, initialState);
+const reducer  = combineReducers(reducers);
+const middlewares = [ middleware.promiseMiddleware ];
+const store    = applyMiddleware(...middlewares)(createStore)(reducer);
 
 render(
   <Provider store={store}>

@@ -25,7 +25,8 @@ if (process.env.NODE_ENV !== 'production') {
 app.use( (req, res) => {
   const location = createLocation(req.url);
   const reducer  = combineReducers(reducers);
-  const store    = applyMiddleware(...middleware)(createStore)(reducer);
+  const middlewares = [ middleware.promiseMiddleware ];
+  const store    = applyMiddleware(...middlewares)(createStore)(reducer);
 
   match({ routes, location }, (err, redirectLocation, renderProps) => {
     if(err) {
