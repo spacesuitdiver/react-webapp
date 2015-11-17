@@ -1,14 +1,17 @@
 import Immutable from 'immutable';
 
-const defaultState = new Immutable.List();
+const defaultState = {
+	user: {},
+	token: ''
+};
 
 export default function authReducer(state = defaultState, action) {
 	switch(action.type) {
 		case 'LOGIN_SUCCESS':
 			return {
 				...state,
-				jwt: action.res.data.jwt,
-				user: action.res
+				user: action.res.data.user,
+				token: action.res.data.token,
 			};
 		default:
 			return state;
