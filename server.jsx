@@ -6,7 +6,7 @@ import createLocation            from 'history/lib/createLocation';
 import routes                    from 'routes';
 import { Provider }              from 'react-redux';
 import * as reducers             from 'reducers';
-import { promiseMiddleware }     from 'middleware';
+import * as middleware           from 'middleware';
 import fetchComponentData        from 'lib/fetchComponentData';
 import { createStore,
          combineReducers,
@@ -25,7 +25,7 @@ if (process.env.NODE_ENV !== 'production') {
 app.use( (req, res) => {
   const location = createLocation(req.url);
   const reducer  = combineReducers(reducers);
-  const store    = applyMiddleware(promiseMiddleware)(createStore)(reducer);
+  const store    = applyMiddleware(...middleware)(createStore)(reducer);
 
   match({ routes, location }, (err, redirectLocation, renderProps) => {
     if(err) {
