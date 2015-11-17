@@ -1,33 +1,14 @@
 import request from 'axios';
 
-const API_URL = 'https://webtask.it.auth0.com/api/run/wt-milomord-gmail_com-0/redux-tutorial-backend?webtask_no_cache=1';
+const API_URL = 'https://api-v1.buzznog.com/apps';
 
 export function getApps() {
   return {
-    type: 'GET_APPS_SUCCESS',
-    promise: request.get(API_URL)
+    type: 'GET_APPS',
+    promise: request.get(API_URL, { 
+      headers: { 
+      	'Authorization': 'Bearer ' + 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjp7ImlkIjo3LCJyb2xlIjoiYWRtaW4ifSwiaWF0IjoxNDQ3NzkxMDAyLCJleHAiOjE0NDc4Nzc0MDIsImF1ZCI6ImJ1enpub2cuY29tIiwiaXNzIjoiYnV6em5vZy5jb20ifQ.Q1pogC5GuYOZofpwIg-9WPEdtqrdqBQhlWvHIMjeUZM' 
+      }
+    })
   }
-}
-
-export function createApp(text) {
-  return {
-    type: 'CREATE_APP_SUCCESS',
-    promise: request.post(API_URL, { time: Date.now(), text })
-  };
-}
-
-export function editApp(id, text) {
-  return {
-    type: 'EDIT_APP_SUCCESS',
-    id,
-    text,
-    date: Date.now()
-  };
-}
-
-export function deleteApp(id) {
-  return {
-    type: 'DELETE_APP_SUCCESS',
-    id
-  };
 }

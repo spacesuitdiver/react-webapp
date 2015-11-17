@@ -6,7 +6,7 @@ import { Provider }         from 'react-redux';
 import { fromJS }           from 'immutable';
 import * as reducers        from 'reducers';
 import * as middleware 		from 'middleware';
-import routes               from 'routes';
+import getRoutes            from 'routes';
 import immutifyState        from 'lib/immutifyState';
 import { createStore,
          combineReducers,
@@ -18,7 +18,8 @@ const history = createBrowserHistory();
 
 const reducer  = combineReducers(reducers);
 const middlewares = [ middleware.promiseMiddleware ];
-const store    = applyMiddleware(...middlewares)(createStore)(reducer);
+const store    	= applyMiddleware(...middlewares)(createStore)(reducer, initialState);
+const routes 	= getRoutes(store);
 
 render(
   <Provider store={store}>

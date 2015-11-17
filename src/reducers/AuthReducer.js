@@ -1,5 +1,3 @@
-import Immutable from 'immutable';
-
 const defaultState = {
 	user: {},
 	token: ''
