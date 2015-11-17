@@ -5,8 +5,8 @@ import createBrowserHistory from 'history/lib/createBrowserHistory'
 import { Provider }         from 'react-redux';
 import { fromJS }           from 'immutable';
 import * as reducers        from 'reducers';
+import { promiseMiddleware } from 'middleware';
 import routes               from 'routes';
-import promiseMiddleware    from 'lib/promiseMiddleware';
 import immutifyState        from 'lib/immutifyState';
 import { createStore,
          combineReducers,

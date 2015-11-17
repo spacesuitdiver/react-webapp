@@ -6,7 +6,7 @@ import createLocation            from 'history/lib/createLocation';
 import routes                    from 'routes';
 import { Provider }              from 'react-redux';
 import * as reducers             from 'reducers';
-import promiseMiddleware         from 'lib/promiseMiddleware';
+import { promiseMiddleware }     from 'middleware';
 import fetchComponentData        from 'lib/fetchComponentData';
 import { createStore,
          combineReducers,
