@@ -39,7 +39,7 @@ export default class LoginForm extends React.Component {
           <Formsy.Form onSubmit={this.handleSubmit.bind(this)} onValid={this.handleValid.bind(this)} onInvalid={this.handleInvalid.bind(this)}>
             <Input layout="vertical" label="Email" name="email" validations="isEmail" validationError="Email must be valid." required/>
             <Input layout="vertical" label="Password" name="password" type="password" validations="minLength:6" validationError="Password must be at least 6 characters." required/>
-            <button type="submit" className="btn btn-primary" disabled={!this.state.isValid}>Login</button>
+            <button type="submit" className="btn btn-block btn-primary" disabled={!this.state.isValid}>Login</button>
           </Formsy.Form>
         </div>
       </div>
