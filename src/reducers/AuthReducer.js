@@ -1,6 +1,7 @@
 const defaultState = {
-	user: {},
-	token: ''
+	user: null,
+	token: null,
+	isLoggedIn: false
 };
 
 export default function authReducer(state = defaultState, action) {
