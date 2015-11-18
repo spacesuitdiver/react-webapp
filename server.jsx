@@ -7,7 +7,7 @@ import getRoutes                    from 'routes';
 import { Provider }              from 'react-redux';
 import * as reducers             from 'reducers';
 import * as middleware           from 'middleware';
-import fetchComponentData        from 'lib/fetchComponentData';
+import fetchComponentData        from 'helpers/fetchComponentData';
 import { createStore,
          combineReducers,
          applyMiddleware }       from 'redux';
