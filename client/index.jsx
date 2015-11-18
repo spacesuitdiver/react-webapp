@@ -17,7 +17,7 @@ const history = createBrowserHistory();
 const reducer  = combineReducers(reducers);
 const middlewares = [ middleware.promiseMiddleware ];
 const store    	= applyMiddleware(...middlewares)(createStore)(reducer, initialState);
-const routes 	= getRoutes(store);
+const routes 	= getRoutes(store.getState());
 
 render(
   <Provider store={store}>

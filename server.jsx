@@ -27,7 +27,7 @@ app.use( (req, res) => {
   const reducer  = combineReducers(reducers);
   const middlewares = [ middleware.promiseMiddleware ];
   const store    = applyMiddleware(...middlewares)(createStore)(reducer);
-  const routes = getRoutes(store);
+  const routes = getRoutes(store.getState());
 
   match({ routes, location }, (err, redirectLocation, renderProps) => {
     if(err) {
