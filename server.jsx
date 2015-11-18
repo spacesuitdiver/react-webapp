@@ -3,11 +3,11 @@ import React                     from 'react';
 import { renderToString }        from 'react-dom/server'
 import { RoutingContext, match } from 'react-router';
 import createLocation            from 'history/lib/createLocation';
-import routes                    from 'routes';
+import getRoutes                    from 'routes';
 import { Provider }              from 'react-redux';
 import * as reducers             from 'reducers';
 import * as middleware           from 'middleware';
-import fetchComponentData        from 'lib/fetchComponentData';
+import fetchComponentData        from 'helpers/fetchComponentData';
 import { createStore,
          combineReducers,
          applyMiddleware }       from 'redux';
@@ -27,15 +27,12 @@ app.use( (req, res) => {
   const reducer  = combineReducers(reducers);
   const middlewares = [ middleware.promiseMiddleware ];
   const store    = applyMiddleware(...middlewares)(createStore)(reducer);
+  const routes = getRoutes(store.getState());
 
   match({ routes, location }, (err, redirectLocation, renderProps) => {
-    if(err) {
-      console.error(err);
-      return res.status(500).end('Internal server error');
-    }
-
-    if(!renderProps)
-      return res.status(404).end('Not found');
+    if (redirectLocation) return res.redirect(redirectLocation.pathname + redirectLocation.search);
+    if (err) return res.status(500).end('Internal server error');
+    if(!renderProps) return res.status(404).end('Not found');
 
     function renderView() {
       const InitialView = (

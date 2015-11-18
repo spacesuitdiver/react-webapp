@@ -10,7 +10,8 @@ import * as authActions        from 'actions/AuthActions';
   authActions)
 export default class LoginForm extends React.Component {
   static propTypes = {
-    login: PropTypes.func.isRequired
+    login: PropTypes.func.isRequired,
+    auth: PropTypes.object.isRequired
   }
 
   constructor(props) {
