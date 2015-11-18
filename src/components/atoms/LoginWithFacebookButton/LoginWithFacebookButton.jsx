@@ -1,6 +1,6 @@
 import React, { PropTypes }   from 'react';
 
-export default class Heading extends React.Component {
+export default class LoginWithFacebookButton extends React.Component {
   static propTypes = {
     text: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired
