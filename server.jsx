@@ -30,13 +30,9 @@ app.use( (req, res) => {
   const routes = getRoutes(store.getState());
 
   match({ routes, location }, (err, redirectLocation, renderProps) => {
-    if(err) {
-      console.error(err);
-      return res.status(500).end('Internal server error');
-    }
-
-    if(!renderProps)
-      return res.status(404).end('Not found');
+    if (redirectLocation) return res.redirect(redirectLocation.pathname + redirectLocation.search);
+    if (err) return res.status(500).end('Internal server error');
+    if(!renderProps) return res.status(404).end('Not found');
 
     function renderView() {
       const InitialView = (
