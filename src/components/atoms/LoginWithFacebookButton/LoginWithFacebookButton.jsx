@@ -12,12 +12,10 @@ export default class LoginWithFacebookButton extends React.Component {
 
     return (
       <div className="facebookButton">
-        <div className="facebookButton-inner">
-          <button className="btn btn-lg btn-facebookButton" type={this.props.type}>
-            <span className="icon icon-thumbs-up"></span>
-            {this.props.text}
-          </button>
-        </div>
+        <button className="btn btn-lg btn-block" type={this.props.type}>
+          <span className="icon icon-thumbs-up"></span>
+          {this.props.text}
+        </button>
       </div>
     );
   }
