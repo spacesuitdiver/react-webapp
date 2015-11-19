@@ -11,6 +11,7 @@ export default function authReducer(state = defaultState, action) {
 				...state,
 				user: action.res.data.user,
 				token: action.res.data.token,
+				isLoggedIn: true
 			};
 		default:
 			return state;
