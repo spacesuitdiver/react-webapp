@@ -14,9 +14,11 @@ export default class Login extends React.Component {
     return (
       <div className="login">
         <Dashhead title="Login" subTitle="Type in yo creds" />
-        <LoginWithFacebookButton text="Login with Facebook" type="button"/>
-        <DividedHeading/>
-        <LoginForm/>
+        <div><LoginWithFacebookButton text="Login with Facebook" type="button"/></div>
+        <div>
+          <div className="dividedHeading-inner"><DividedHeading text="or"/></div>
+        </div>
+        <div><LoginForm/></div>
       </div>
     );
   }
