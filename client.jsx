@@ -15,7 +15,7 @@ const initialState = window.__INITIAL_STATE__;
 const history = createBrowserHistory();
 
 const reducer  = combineReducers(reducers);
-const middlewares = [ middleware.promiseMiddleware ];
+const middlewares = [ middleware.promise, middleware.nextPath ];
 const store    	= applyMiddleware(...middlewares)(createStore)(reducer, initialState);
 const routes 	= getRoutes(store.getState());
 

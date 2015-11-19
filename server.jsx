@@ -3,7 +3,7 @@ import React                     from 'react';
 import { renderToString }        from 'react-dom/server'
 import { RoutingContext, match } from 'react-router';
 import createLocation            from 'history/lib/createLocation';
-import getRoutes                    from 'routes';
+import getRoutes                 from 'routes';
 import { Provider }              from 'react-redux';
 import * as reducers             from 'reducers';
 import * as middleware           from 'middleware';
@@ -25,8 +25,8 @@ if (process.env.NODE_ENV !== 'production') {
 app.use( (req, res) => {
   const location = createLocation(req.url);
   const reducer  = combineReducers(reducers);
-  const middlewares = [ middleware.promiseMiddleware ];
-  const store    = applyMiddleware(...middlewares)(createStore)(reducer);
+  const middlewares = [ middleware.promise, middleware.nextPath ];
+  const store = applyMiddleware(...middlewares)(createStore)(reducer);
   const routes = getRoutes(store.getState());
 
   match({ routes, location }, (err, redirectLocation, renderProps) => {

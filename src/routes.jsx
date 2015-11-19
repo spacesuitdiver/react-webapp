@@ -6,7 +6,7 @@ import * as Pages               from 'components/pages';
 export default function getRoutes(state) {
 
 	const requireAuth = (nextState, replaceState, callback) => {
-		if (!state.auth.isLoggedIn) replaceState(null, '/login');
+		if (!state.auth.isLoggedIn) replaceState(nextState, '/login');
 		callback();
 	};
 

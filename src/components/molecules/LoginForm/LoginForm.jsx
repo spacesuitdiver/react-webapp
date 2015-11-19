@@ -14,6 +14,10 @@ export default class LoginForm extends React.Component {
     auth: PropTypes.object.isRequired
   }
 
+  static contextTypes = {
+    history: PropTypes.object.isRequired
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +26,7 @@ export default class LoginForm extends React.Component {
   }
 
   handleSubmit(model) {
-    this.props.login(model);
+    this.props.login(model, this.context.history);
   }
 
   handleValid() {

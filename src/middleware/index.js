@@ -1,1 +1,2 @@
-export { default as promiseMiddleware } from './promiseMiddleware';
+export { default as promise } from './promiseMiddleware';
+export { default as nextPath } from './nextPathMiddleware';

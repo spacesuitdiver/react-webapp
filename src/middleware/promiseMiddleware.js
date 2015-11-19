@@ -1,6 +1,6 @@
 export default function promiseMiddleware() {
   return next => action => {
-    const { promise, type, ...rest } = action;
+    const { promise, type, transition, ...rest } = action;
 
     if (!promise) return next(action);
 
@@ -12,7 +12,7 @@ export default function promiseMiddleware() {
 
     return promise
       .then(res => {
-        next({ ...rest, res, type: SUCCESS });
+        next({ ...rest, res, nextPath: transition, type: SUCCESS });
 
         return true;
       })
