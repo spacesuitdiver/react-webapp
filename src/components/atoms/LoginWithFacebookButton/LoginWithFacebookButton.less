@@ -1,13 +1,9 @@
 @import "../../../styles/variables.less";
+@import "../../../styles/dashboard-theme/bootstrap/mixins/buttons.less";
 
-.btn-facebookButton {
-  width: 100%;
-  max-width: 768px;
-  color: #fff;
-  background-color: #3b5998;
-
-  &:hover {
-    color: darken(#fff, 10%);
-    background-color: darken(#3b5998, 10%);
+.facebookButton {
+  
+  button {
+    .button-variant(#fff; @facebook-color; darken(@facebook-color, 20%););
   }
 }
