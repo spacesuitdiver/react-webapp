@@ -10,17 +10,13 @@ export default class SignUpLink extends React.Component {
   static propTypes = {
     updatePath: PropTypes.func.isRequired,
   }
-
-  handleClick(path) {
-    this.props.updatePath(path);
-  }
   
   render() {
     const { updatePath } = this.props;
 
     return (
       <div className="signUpLink">
-        <div>Don't have an account? <a href="#" onClick={() => this.handleClick('/signup')}>Sign Up</a></div>
+        <div>Don't have an account? <a href="#" onClick={() => updatePath('/signup')}>Sign Up</a></div>
       </div>
     );
   }
