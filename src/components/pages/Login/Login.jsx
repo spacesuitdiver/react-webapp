@@ -5,6 +5,7 @@ import { LoginForm } from 'components/molecules';
 import { Dashhead } from 'components/atoms';
 import { LoginWithFacebookButton } from 'components/atoms';
 import { DividedHeading } from 'components/atoms';
+import { SignUpLink } from 'components/molecules';
 
 export default class Login extends React.Component {
 
@@ -19,6 +20,7 @@ export default class Login extends React.Component {
           <div className="dividedHeading-inner"><DividedHeading text="or"/></div>
         </div>
         <div><LoginForm/></div>
+        <div><SignUpLink/></div>
       </div>
     );
   }
