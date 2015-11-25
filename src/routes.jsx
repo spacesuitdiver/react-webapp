@@ -3,10 +3,10 @@ import { Route, IndexRoute }	from 'react-router';
 import App                     	from 'components/App';
 import * as Pages               from 'components/pages';
 
-export default function getRoutes(state) {
+export default function getRoutes(store) {
 
 	const requireAuth = (nextState, replaceState, callback) => {
-		if (!state.auth.isLoggedIn) replaceState(null, '/login');
+		if (!store.getState().auth.isLoggedIn) replaceState(null, '/login');
 		callback();
 	};
 
