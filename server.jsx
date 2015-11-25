@@ -5,15 +5,10 @@ import { RoutingContext, match } from 'react-router';
 import createLocation            from 'history/lib/createLocation';
 import getRoutes                    from 'routes';
 import { Provider }              from 'react-redux';
-import * as reducers             from 'reducers';
-import * as middleware           from 'middleware';
-import * as subscribers   from 'subscribers';
 import fetchComponentData        from 'helpers/fetchComponentData';
-import { createStore,
-         combineReducers,
-         applyMiddleware }       from 'redux';
 import path                      from 'path';
 import webpackDevServerMiddleware                from './webpack/dev-server-middleware';
+import createStore from 'store/createStore';
 
 const app = express();
 
@@ -25,10 +20,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 app.use( (req, res) => {
   const location = createLocation(req.url);
-  const reducer  = combineReducers(reducers);
-  const middlewares = [ middleware.promiseMiddleware ];
-  const store    = applyMiddleware(...middlewares)(createStore)(reducer);
-  store.subscribe(subscribers.loggedIn(store));
+  const store    = createStore();
   const routes = getRoutes(store);
 
   match({ routes, location }, (err, redirectLocation, renderProps) => {
