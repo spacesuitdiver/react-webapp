@@ -7,6 +7,7 @@ import getRoutes                    from 'routes';
 import { Provider }              from 'react-redux';
 import * as reducers             from 'reducers';
 import * as middleware           from 'middleware';
+import * as subscribers   from 'subscribers';
 import fetchComponentData        from 'helpers/fetchComponentData';
 import { createStore,
          combineReducers,
@@ -27,7 +28,8 @@ app.use( (req, res) => {
   const reducer  = combineReducers(reducers);
   const middlewares = [ middleware.promiseMiddleware ];
   const store    = applyMiddleware(...middlewares)(createStore)(reducer);
-  const routes = getRoutes(store.getState());
+  store.subscribe(subscribers.loggedIn(store));
+  const routes = getRoutes(store);
 
   match({ routes, location }, (err, redirectLocation, renderProps) => {
     if (redirectLocation) return res.redirect(redirectLocation.pathname + redirectLocation.search);

@@ -5,6 +5,7 @@ import createBrowserHistory from 'history/lib/createBrowserHistory'
 import { Provider }         from 'react-redux';
 import * as reducers        from 'reducers';
 import * as middleware 		from 'middleware';
+import * as subscribers		from 'subscribers';
 import getRoutes            from 'routes';
 import { createStore,
          combineReducers,
@@ -18,6 +19,7 @@ const reducer  = combineReducers(reducers);
 const middlewares = [ middleware.promiseMiddleware ];
 const store    	= applyMiddleware(...middlewares)(createStore)(reducer, initialState);
 const routes 	= getRoutes(store.getState());
+store.subscribe(subscribers.loggedIn(store));
 
 render(
   <Provider store={store}>
