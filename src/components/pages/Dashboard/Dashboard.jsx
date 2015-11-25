@@ -9,7 +9,6 @@ import { connect }            from 'react-redux';
 export default class Dashboard extends React.Component {
   static propTypes = {
     apps:    PropTypes.any.isRequired,
-    dispatch: PropTypes.func.isRequired
   }
 
   static needs = [
@@ -17,7 +16,7 @@ export default class Dashboard extends React.Component {
   ]
   
   render() {
-    const { apps, dispatch } = this.props;
+    const { apps } = this.props;
 
     return (
       <div id="dashboard">
