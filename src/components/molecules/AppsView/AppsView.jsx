@@ -7,9 +7,9 @@ export default class AppView extends React.Component {
   }
 
   render() {
-    console.log(this.props.apps)
     return (
       <div id="apps-list">
+        <h1>My Apps</h1>
         {
           this.props.apps.map(function (app, index) {
             return (
