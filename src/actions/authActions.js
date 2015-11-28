@@ -8,3 +8,10 @@ export function login(credentials) {
     promise: request.post(API_URL, credentials)
   }
 }
+
+export function persistToken(token) {
+  return {
+    type: 'PERSIST_TOKEN',
+    persist: { token: token }
+  }
+}
