@@ -4,10 +4,10 @@ import { createStore as _createStore,
 import * as reducers      from 'reducers';
 import * as middlewares   from 'middlewares';
 
-import { updatePath } from 'redux-simple-router';
+import { updatePath } from 'actions/routerActions';
 
 const reducer = combineReducers(reducers);
-const middleware = [ middlewares.promise ];
+const middleware = [ middlewares.thunk, middlewares.persist, middlewares.promise ];
 
 export default function createStore(initialState) {
   const store = applyMiddleware(...middleware)(_createStore)(reducer, initialState);

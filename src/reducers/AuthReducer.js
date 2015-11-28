@@ -6,11 +6,11 @@ const defaultState = {
 
 export default function authReducer(state = defaultState, action) {
 	switch(action.type) {
-		case 'LOGIN_SUCCESS':
+		case 'UPDATE_AUTH':
 			return {
 				...state,
-				user: action.res.data.user,
-				token: action.res.data.token,
+				user: action.data.user,
+				token: action.data.token,
 				isLoggedIn: true
 			};
 		default:
