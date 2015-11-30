@@ -4,18 +4,19 @@ const API_URL = 'https://api-v1.buzznog.com/auth/local';
 
 export function login(credentials) {
   return (dispatch) => {
-	request.post(API_URL, credentials)
-	.then(res => {
-		dispatch(persistAuth(res.data));
-		dispatch(updateAuth(res.data));
-	})
+  request.post(API_URL, credentials)
+  .then(res => {
+    dispatch(persistAuth(res.data));
+    dispatch(load(res.data));
+  })
   }
 }
 
-export function updateAuth(auth) {
+export function load(data) {
+  if (!data) data = JSON.parse(localStorage.auth);
   return {
-    type: 'UPDATE_AUTH',
-    data: auth
+    type: 'LOAD',
+    data: data
   }
 }
 

@@ -1,8 +1,8 @@
-export default function promiseMiddleware() {
+export default function requestMiddleware() {
   return next => action => {
-    const { promise, type, ...rest } = action;
+    const { request, type, ...rest } = action;
 
-    if (!promise) return next(action);
+    if (!request) return next(action);
 
     const REQUEST = type;
     const SUCCESS = type + '_SUCCESS';
@@ -10,7 +10,7 @@ export default function promiseMiddleware() {
 
     next({ ...rest, type: REQUEST });
 
-    return promise
+    return request
       .then(res => {
         next({ ...rest, res, type: SUCCESS });
 
