@@ -2,12 +2,13 @@ import React                   	from 'react';
 import { Route, IndexRoute }	from 'react-router';
 import App                     	from 'components/App';
 import * as Pages               from 'components/pages';
+import { load as loadAuth } 	from 'actions/authActions';
 
 export default function getRoutes(store) {
 
-	const requireAuth = (nextState, replaceState, callback) => {
-		if (!store.getState().auth.isLoggedIn) replaceState(null, '/login');
-		callback();
+	const requireAuth = (nextState, replaceState, next) => {
+		if (!store.getState().auth.isLoggedIn) replaceState({ nextPathname: nextState.location.pathname }, '/login');
+		next();
 	};
 
 	return (

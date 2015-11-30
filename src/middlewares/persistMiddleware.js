@@ -4,7 +4,7 @@ export default function persistMiddleware() {
 
     if (!persist) return next(action);
 
-    const itemName = Object.keys(persist)[0]
+    const itemName = Object.keys(persist)[0];
     localStorage.setItem(itemName, JSON.stringify(persist[itemName]));
 
     return next(action);
