@@ -1,6 +1,6 @@
-# My Buzznog
+# React Webapp
 
-Client app administrative interface.
+A (mostly) working universal react webapp.
 
 ## Development
 
