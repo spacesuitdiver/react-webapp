@@ -1,6 +1,6 @@
 # React Webapp
 
-A (mostly) working universal react webapp.
+A working universal react webapp.
 
 ## Development
 
